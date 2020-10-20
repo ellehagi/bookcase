@@ -1,25 +1,28 @@
-import React,  { useState } from 'react'; 
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React from 'react';
+
+const propTypes = {};
+const defaultProps = {};
 
 const Search = (props) => {
-    const handleSubmit = (event) =>{ 
-    event.preventDefault(); 
-    props.findBooks(props.keyword);
-    };
-    return ( 
-    <form onSubmit= {handleSubmit}>
-    <Form.Group controlId="searchKeyword">
-    <Form.Control type="keyword" placeholder="Enter keyword" value={props.keyword}
-    onChange={(e) => { props.setKeyword(e.target.value)}} />
-    </Form.Group> 
 
-<Button variant="primary" type="submit"> Submit
-  </Button>
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        props.findBooks(props.keyword);
+    };
+
+    return <div className="searchBar">
+        <form onSubmit={handleSubmit}>
+        <label>
+            <input type="text" placeholder="Enter name, author, keyword or genre..." name="search" value={props.keyword} onChange={(e) => props.setKeyword(e.target.value)}/>
+        </label>
+        <input type="submit" value="Find"/>
         </form>
-    );   
-};   
-    
-    
-    
-    export default Search;
+        <h1>{props.keyword && 'Searching for keyword:' + props.keyword}</h1>
+    </div>
+}
+
+Search.propTypes = propTypes;
+Search.defaultProps = defaultProps;
+// #endregion
+
+export default Search;

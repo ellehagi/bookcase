@@ -1,7 +1,9 @@
+
 import React from 'react';
+
 const Book = (props) => {
   const info = props.book.volumeInfo;
-  const { volumeInfo: { title, authors, description, imageLinks: { thumbnail } } } = props.book;
+  const {id, volumeInfo: { title, authors, description, imageLinks: { thumbnail } } } = props.book;
   const renderAmount = () => {
     if (props.book.saleInfo && props.book.saleInfo.listPrice && props.book.saleInfo.listPrice.amount) {
       return '£' + props.book.saleInfo.listPrice.amount;
@@ -17,13 +19,18 @@ const Book = (props) => {
     return authors.map(author => author + ', ');
   }
   return (
-    <div>
+    <div className="books">
       <img src={thumbnail} />
       <h2>{title} - {renderAuthors()}</h2>
       <p>{renderAmount()}</p>
       <p>{description}</p>
-      <button onClick={() => props.addBook(title)}>Add +</button>
+      <button onClick={() => props.addBook(id)}>Add +</button>
     </div>
   );
 }
 export default Book;
+
+
+
+
+

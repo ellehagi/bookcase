@@ -6,11 +6,14 @@ import Search from './components/Search';
 import BookList from './components/BookList';
 import data from './models/books.json';
 import About from './pages/About';
+import {Button} from './components/Header';
+
 
 const App = (props) => {
 
   const [books, setBooks] = useState(data);
   const [keyword, setKeyword] = useState('');
+  const [cart, setCart] = useState([]);
 
   const[ selectedBook, setSelectedBook ] = useState('');
 
@@ -21,13 +24,17 @@ const App = (props) => {
     } 
 }
 
-  function addBook(title) {
-    console.log(`The Book ${title} was clicked`);
+  const addBook = (id) => {
+    setCart([...cart, id]);
+    console.log(`The Book ${id} was clicked`);
+    console.log(cart);
     //setSelectedBook(title);
+    //
     }
  if (books.length === 0){
    return 'no books found';
  }
+ 
 
   //return (
       //<div>
@@ -40,14 +47,14 @@ const App = (props) => {
     <BrowserRouter>
 <Route exact path="/" render={() => (
 <React.Fragment>
-<Header/>
+<Header cartLength={cart.length}/>
  <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
 <BookList books={books} addBook={addBook} />
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (
 <React.Fragment>
-/* <Header />
+ <Header cartLength={cart.length}/>
 <BookList books={books} addBook={addBook} /> */
 </React.Fragment>
 )} />
