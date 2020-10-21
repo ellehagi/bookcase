@@ -17,7 +17,10 @@ const App = (props) => {
   
 
   const[ selectedBook, setSelectedBook ] = useState('');
-  
+  const addBook = (book) => {
+    console.log(book);
+    setCart([...cart, book])
+  }
 
 
   async function findBooks(value) { 
@@ -27,34 +30,6 @@ const App = (props) => {
     } 
 }
 
-const addBook = (id) => {
-  setCart([...cart, id]);
-  console.log(`The Book ${id} was clicked`);
-  console.log(cart);
-  //setSelectedBook(title);
-  //
-  }
-if (books.length === 0){
- return 'no books found';
-}
-    
-
-
-    
-    //setSelectedBook(title);
-    //
-
-
-
-
-
-
-  //return (
-      //<div>
-         //<BookList books={books} addBook={addBook} />
-    
-    //</div>
-   //);
 
    return (
     <BrowserRouter>
@@ -68,7 +43,7 @@ if (books.length === 0){
 <Route path="/bookcase" render={() => (
 <React.Fragment>
  <Header cartLength={cart.length}/>
-<BookList books={books} addBook={addBook} /> */
+<BookList books={cart} addBook={addBook} /> */
 </React.Fragment>
 )} />
 <Route path="/about" render={() => (
@@ -78,6 +53,8 @@ if (books.length === 0){
 )} />
  </BrowserRouter>
     )
-  } 
+  }
+
 
 export default App;
+
