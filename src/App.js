@@ -6,7 +6,7 @@ import Search from './components/Search';
 import BookList from './components/BookList';
 import data from './models/books.json';
 import About from './pages/About';
-import {Button} from './components/Header';
+import Cart from './components/Cart';
 
 
 const App = (props) => {
@@ -14,8 +14,11 @@ const App = (props) => {
   const [books, setBooks] = useState(data);
   const [keyword, setKeyword] = useState('');
   const [cart, setCart] = useState([]);
+  
 
   const[ selectedBook, setSelectedBook ] = useState('');
+  
+
 
   async function findBooks(value) { 
     const results = await  fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&filter=paid-ebooks&print-ty pe=books&projection=lite`).then(res => res.json());
@@ -24,17 +27,27 @@ const App = (props) => {
     } 
 }
 
-  const addBook = (id) => {
-    setCart([...cart, id]);
-    console.log(`The Book ${id} was clicked`);
-    console.log(cart);
+const addBook = (id) => {
+  setCart([...cart, id]);
+  console.log(`The Book ${id} was clicked`);
+  console.log(cart);
+  //setSelectedBook(title);
+  //
+  }
+if (books.length === 0){
+ return 'no books found';
+}
+    
+
+
+    
     //setSelectedBook(title);
     //
-    }
- if (books.length === 0){
-   return 'no books found';
- }
- 
+
+
+
+
+
 
   //return (
       //<div>
@@ -65,6 +78,6 @@ const App = (props) => {
 )} />
  </BrowserRouter>
     )
-  }
+  } 
 
 export default App;
