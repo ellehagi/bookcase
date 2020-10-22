@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Book = (props) => {
@@ -25,10 +24,13 @@ const Book = (props) => {
       <p>{renderAmount()}</p>
       <p>{description}</p>
       <button onClick={() => props.addBook(props.book)}>Add +</button>
+      <button onClick={() => props.removeBook(props.book)}>x</button>
     </div>
   );
 }
 export default Book;
+
+
 
 
 

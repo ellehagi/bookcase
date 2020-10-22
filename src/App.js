@@ -6,7 +6,7 @@ import Search from './components/Search';
 import BookList from './components/BookList';
 import data from './models/books.json';
 import About from './pages/About';
-import Cart from './components/Cart';
+import Bookcase from './components/Bookcase';
 
 
 const App = (props) => {
@@ -14,13 +14,18 @@ const App = (props) => {
   const [books, setBooks] = useState(data);
   const [keyword, setKeyword] = useState('');
   const [cart, setCart] = useState([]);
-  
+  //const[ selectedBook, setSelectedBook ] = useState('');
 
-  const[ selectedBook, setSelectedBook ] = useState('');
+
   const addBook = (book) => {
     console.log(book);
     setCart([...cart, book])
-  }
+  };
+
+  const removeBook = (removeFromCart) => {
+    setCart(cart.filter(book => book !== removeFromCart)
+    );
+  };
 
 
   async function findBooks(value) { 
@@ -30,20 +35,19 @@ const App = (props) => {
     } 
 }
 
-
-   return (
-    <BrowserRouter>
+return (
+  <BrowserRouter>
 <Route exact path="/" render={() => (
 <React.Fragment>
 <Header cartLength={cart.length}/>
- <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
+<Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
 <BookList books={books} addBook={addBook} />
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (
 <React.Fragment>
- <Header cartLength={cart.length}/>
-<BookList books={cart} addBook={addBook} /> */
+<Header cartLength={cart.length}/>
+<BookList books={cart} addBook={addBook} /> 
 </React.Fragment>
 )} />
 <Route path="/about" render={() => (
@@ -51,9 +55,9 @@ const App = (props) => {
 <About />
 </React.Fragment>
 )} />
- </BrowserRouter>
-    )
-  }
+</BrowserRouter>
+  )
+}
 
 
 export default App;
