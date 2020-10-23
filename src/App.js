@@ -17,15 +17,20 @@ const App = (props) => {
   //const[ selectedBook, setSelectedBook ] = useState('');
 
 
+  
+
+
   const addBook = (book) => {
     console.log(book);
     setCart([...cart, book])
   };
 
+
   const removeBook = (removeFromCart) => {
     setCart(cart.filter(book => book !== removeFromCart)
     );
   };
+
 
 
   async function findBooks(value) { 
@@ -41,13 +46,13 @@ return (
 <React.Fragment>
 <Header cartLength={cart.length}/>
 <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
-<BookList books={books} addBook={addBook} />
+<BookList books={books} addBook={addBook} removeBook={removeBook}/>
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (
 <React.Fragment>
 <Header cartLength={cart.length}/>
-<BookList books={cart} addBook={addBook} /> 
+<BookList books={cart} addBook={addBook} removeBook={removeBook} /> 
 </React.Fragment>
 )} />
 <Route path="/about" render={() => (
