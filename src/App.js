@@ -7,6 +7,7 @@ import BookList from './components/BookList';
 import data from './models/books.json';
 import About from './pages/About';
 import Bookcase from './components/Bookcase';
+import { Button } from 'react-bootstrap';
 
 
 const App = (props) => {
@@ -19,7 +20,6 @@ const App = (props) => {
 
   
 
-
   const addBook = (book) => {
     console.log(book);
     setCart([...cart, book])
@@ -30,6 +30,10 @@ const App = (props) => {
     setCart(cart.filter(book => book !== removeFromCart)
     );
   };
+
+
+
+  
 
 
 
@@ -46,13 +50,13 @@ return (
 <React.Fragment>
 <Header cartLength={cart.length}/>
 <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
-<BookList books={books} addBook={addBook} removeBook={removeBook}/>
+<BookList books={books} addBook={addBook} removeBook={removeBook} showDeleteBtn={false} showAddBtn={true}/>
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (
 <React.Fragment>
 <Header cartLength={cart.length}/>
-<BookList books={cart} addBook={addBook} removeBook={removeBook} /> 
+<BookList books={cart} addBook={addBook} removeBook={removeBook} showDeleteBtn={true} showAddBtn={false}/> 
 </React.Fragment>
 )} />
 <Route path="/about" render={() => (
@@ -65,5 +69,6 @@ return (
 }
 
 
-export default App;
+export default App; 
+ 
 

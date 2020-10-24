@@ -3,6 +3,8 @@ import React from 'react';
 const Book = (props) => {
   const info = props.book.volumeInfo;
   const {id, volumeInfo: { title, authors, description, imageLinks: { thumbnail } } } = props.book;
+  const {showDeleteBtn} = props;
+  const {showAddBtn} = props;
   const renderAmount = () => {
     if (props.book.saleInfo && props.book.saleInfo.listPrice && props.book.saleInfo.listPrice.amount) {
       return '£' + props.book.saleInfo.listPrice.amount;
@@ -23,8 +25,13 @@ const Book = (props) => {
       <h2>{title} - {renderAuthors()}</h2>
       <p>{renderAmount()}</p>
       <p>{description}</p>
-      <button onClick={() => props.addBook(props.book)}>Add +</button>
-      <button onClick={() => props.removeBook(props.book)}>x</button> 
+      {showAddBtn && <button onClick={() => props.addBook(props.book)}>Add +</button> 
+}
+{showDeleteBtn && <button onClick={() => props.removeBook(props.book)}
+      >x</button>
+}  
+
+      
     </div>
   );
 }
