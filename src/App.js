@@ -50,13 +50,15 @@ return (
 <React.Fragment>
 <Header cartLength={cart.length}/>
 <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
-<BookList books={books} addBook={addBook} removeBook={removeBook} showDeleteBtn={false} showAddBtn={true}/>
+<BookList books={books} addBook={addBook} removeBook={removeBook} 
+showDeleteBtn={false} showAddBtn={true}/>
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (
 <React.Fragment>
 <Header cartLength={cart.length}/>
-<BookList books={cart} addBook={addBook} removeBook={removeBook} showDeleteBtn={true} showAddBtn={false}/> 
+<BookList books={cart} addBook={addBook} removeBook={removeBook} 
+showDeleteBtn={true} showAddBtn={false}/> 
 </React.Fragment>
 )} />
 <Route path="/about" render={() => (
