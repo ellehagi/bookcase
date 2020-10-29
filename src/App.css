@@ -52,3 +52,14 @@ body{
     clear: both;
     display: table;
   }
+  .removebtn{
+    padding: 8px 10px;
+    border: 0px;  
+    border-radius: 5px;
+    min-width: 80px;
+    color:#fff;
+    font-size:1.1em;
+    background-color:#a57c00;
+    width: 50px;
+    height: 55px;
+  }
