@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
@@ -6,9 +6,9 @@ import Search from './components/Search';
 import BookList from './components/BookList';
 import data from './models/books.json';
 import About from './pages/About';
+import './App.css';
 import Bookcase from './components/Bookcase';
 import { Button } from 'react-bootstrap';
-
 
 const App = (props) => {
 
@@ -16,6 +16,8 @@ const App = (props) => {
   const [keyword, setKeyword] = useState('');
   const [cart, setCart] = useState([]);
   //const[ selectedBook, setSelectedBook ] = useState('');
+
+
 
 
   
@@ -44,21 +46,26 @@ const App = (props) => {
     } 
 }
 
+
+
+  
+  
+
 return (
   <BrowserRouter>
 <Route exact path="/" render={() => (
 <React.Fragment>
 <Header cartLength={cart.length}/>
-<Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword} />
+<Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword}/>
 <BookList books={books} addBook={addBook} removeBook={removeBook} 
-showDeleteBtn={false} showAddBtn={true}/>
+showDeleteBtn={false} showAddBtn={true} />
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (
 <React.Fragment>
 <Header cartLength={cart.length}/>
 <BookList books={cart} addBook={addBook} removeBook={removeBook} 
-showDeleteBtn={true} showAddBtn={false}/> 
+showDeleteBtn={true} showAddBtn={false} /> 
 </React.Fragment>
 )} />
 <Route path="/about" render={() => (

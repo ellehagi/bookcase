@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Book = (props) => {
   const info = props.book.volumeInfo;
   const {id, volumeInfo: { title, authors, description, imageLinks: { thumbnail } } } = props.book;
@@ -25,9 +26,9 @@ const Book = (props) => {
       <h2>{title} - {renderAuthors()}</h2>
       <p>{renderAmount()}</p>
       <p>{description}</p>
-      {showAddBtn && <button onClick={() => props.addBook(props.book)}>Add +</button> 
+      {showAddBtn && <button className="addbtn"onClick={() => props.addBook(props.book)}>Add +</button> 
 }
-{showDeleteBtn && <button onClick={() => props.removeBook(props.book)}
+{showDeleteBtn && <button className="removebtn" onClick={() => props.removeBook(props.book)}
       >x</button>
 }  
 
