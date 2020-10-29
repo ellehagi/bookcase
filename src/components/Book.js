@@ -23,7 +23,7 @@ const Book = (props) => {
   }
   return (
     <div className="books">
-      <img src={thumbnail} />
+      <img className="img" src={thumbnail} />
       <h2 className="author">{title} - {renderAuthors()}</h2>
       <p className="price">{renderAmount()}</p>
  {showDescription&& <p className="description"></p>
