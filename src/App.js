@@ -8,7 +8,7 @@ import data from './models/books.json';
 import About from './pages/About';
 import './App.css';
 import Bookcase from './components/Bookcase';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 const App = (props) => {
 
@@ -58,7 +58,7 @@ return (
 <Header cartLength={cart.length}/>
 <Search findBooks={findBooks} keyword={keyword} setKeyword={setKeyword}/>
 <BookList books={books} addBook={addBook} removeBook={removeBook} 
-showDeleteBtn={false} showAddBtn={true} />
+showDeleteBtn={false} showAddBtn={true}  />
 </React.Fragment>
 )} />
 <Route path="/bookcase" render={() => (

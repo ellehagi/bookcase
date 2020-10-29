@@ -23,9 +23,9 @@ const Book = (props) => {
   return (
     <div className="books">
       <img src={thumbnail} />
-      <h2>{title} - {renderAuthors()}</h2>
-      <p>{renderAmount()}</p>
-      <p>{description}</p>
+      <h2 className="author">{title} - {renderAuthors()}</h2>
+      <p className="price">{renderAmount()}</p>
+      <p className="description">{description}</p>
       {showAddBtn && <button className="addbtn"onClick={() => props.addBook(props.book)}>Add +</button> 
 }
 {showDeleteBtn && <button className="removebtn" onClick={() => props.removeBook(props.book)}

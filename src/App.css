@@ -4,6 +4,23 @@ body{
 
 }
 
-.addbtn{
-    
-}
+.books{
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+  }
+  nav {
+    height: 10vh;
+    font-family: 'Bebas Neue', cursive;
+  }
+
+  .nav-links {
+    display: flex;
+    padding: 5px 10px;
+    list-style: none;
+    width: 10%;
+    height: 10%;
+    align-items: center;
+    margin-left: auto;
+  }
+  
