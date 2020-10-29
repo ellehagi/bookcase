@@ -36,16 +36,25 @@ const App = (props) => {
 
 
 
-  
+  useEffect(() => {
+    
+    document.title = `My Library ${cart.length} Read`;
+    Array.from(document.getElementsByClassName("bookLink")).forEach((el) => {
+      el.innerText = ` Cart (${cart.length})`;
+    });
+  });
+
+  async function findBooks(value) {
+
+    //Fetch data from server
+    const results = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&filter=paid-ebooks&print-type=books&projection=lite`).then(res => res.json());
+    if (!results.error) {
+      setBooks(results.items);
+    }
+  }
 
 
 
-  async function findBooks(value) { 
-    const results = await  fetch(`https://www.googleapis.com/books/v1/volumes?q=${value}&filter=paid-ebooks&print-ty pe=books&projection=lite`).then(res => res.json());
-    if (!results.error) { 
-    setBooks(results.items);
-    } 
-}
 
 
 
