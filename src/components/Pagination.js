@@ -1,6 +1,8 @@
 import React from 'react';
+import Book from './Book' ;
 
-const Pagination= ({ booksPerPage, totalBooks, paginate }) => {
+
+const Pagination= ({booksPerPage, totalBooks,paginate }) => {
     const pageNumbers = [];
   
 

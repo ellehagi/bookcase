@@ -6,6 +6,7 @@ const Book = (props) => {
   const {id, volumeInfo: { title, authors, description, imageLinks: { thumbnail } } } = props.book;
   const {showDeleteBtn} = props;
   const {showAddBtn} = props;
+  const {showDescription} = props;
   const renderAmount = () => {
     if (props.book.saleInfo && props.book.saleInfo.listPrice && props.book.saleInfo.listPrice.amount) {
       return '£' + props.book.saleInfo.listPrice.amount;
@@ -25,7 +26,9 @@ const Book = (props) => {
       <img src={thumbnail} />
       <h2 className="author">{title} - {renderAuthors()}</h2>
       <p className="price">{renderAmount()}</p>
-      <p className="description">{description}</p>
+ {showDescription&& <p className="description"></p>
+}
+
       {showAddBtn && <button className="addbtn"onClick={() => props.addBook(props.book)}>Add +</button> 
 }
 {showDeleteBtn && <button className="removebtn" onClick={() => props.removeBook(props.book)}
