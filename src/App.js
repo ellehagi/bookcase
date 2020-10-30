@@ -80,7 +80,7 @@ showDeleteBtn={true} showAddBtn={false} showDescription={true}/>
 )} />
 <Route path="/about" render={() => (
 <React.Fragment>
-<About />
+<About cartLength={cart.length}/>
 </React.Fragment>
 )} />
 </BrowserRouter>
