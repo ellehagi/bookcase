@@ -26,8 +26,10 @@ const Book = (props) => {
       <img className="img" src={thumbnail} />
       <h2 className="author">{title} - {renderAuthors()}</h2>
       <p className="price">{renderAmount()}</p>
- {showDescription&& <p className="description"></p>
+      {showDescription&& <p className="description">{description}</p>
 }
+    
+
 
       {showAddBtn && <button className="addbtn"onClick={() => props.addBook(props.book)}>Add +</button> 
 }

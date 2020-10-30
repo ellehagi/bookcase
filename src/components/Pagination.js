@@ -3,13 +3,16 @@ import Book from './Book' ;
 
 
 const Pagination= ({booksPerPage, totalBooks,paginate }) => {
-    const pageNumbers = [];
-  
+const pageNumbers = [];
+//for( i = 1; i <= Math.ceil(totalBooks /booksPerPage); i++){
+        //pageNumbers.push(i);
+    //} 
 
 function handlePagination (event, number) {
     event.preventDefault();
     paginate(number);
     }
+
   return (
     <nav>
       <ul className="pagination">

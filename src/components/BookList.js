@@ -16,7 +16,7 @@ const paginate = pageNumber => setCurrentPage(pageNumber);
      <React.Fragment>
          
      <div>
-     {currentBooks.map(book => <Book key={book.id} book={book} currentBooks={currentBooks} addBook={props.addBook} removeBook={props.removeBook} showDeleteBtn={props.showDeleteBtn} showAddBtn={props.showAddBtn}/>) }
+     {currentBooks.map(book => <Book key={book.id} book={book} currentBooks={currentBooks} addBook={props.addBook} removeBook={props.removeBook} showDeleteBtn={props.showDeleteBtn} showAddBtn={props.showAddBtn} showDescription={props.showDescription}/>) }
     
     </div>
 
