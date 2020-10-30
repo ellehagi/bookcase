@@ -4,9 +4,9 @@ import Book from './Book' ;
 
 const Pagination= ({booksPerPage, totalBooks,paginate }) => {
 const pageNumbers = [];
-//for( i = 1; i <= Math.ceil(totalBooks /booksPerPage); i++){
-        //pageNumbers.push(i);
-    //} 
+for(let i = 1; i <= Math.ceil(totalBooks /booksPerPage); i++){
+    pageNumbers.push(i);
+}
 
 function handlePagination (event, number) {
     event.preventDefault();
