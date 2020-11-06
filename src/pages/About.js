@@ -11,8 +11,11 @@ const About = (props) => {
                   <Link className="nav-links" to="/about"> ABOUT </Link> 
                   <Link className="nav-links" to="/bookcase" className="bookLink">  CART ({props.cartLength}) </Link>
                 </div>
-                <div className="page">Welcome to the Bookcase Application.</div>
+            <h2 className="title-name">Welcome to the Bookcase Application</h2>
+            <p className="body-name">The following application was created by Elham. This bookcase app displays a list of books that a user can save to a local bookcase
+Click on the "Add + " button to add a book to your bookcase. Use the search bar to find the latest books by name, author or description</p>
             </div>
+           
     )
 }
 

@@ -20,6 +20,7 @@ const Search = (props) => {
         </form>
         <h1>{props.keyword && 'Searching for keyword:' + props.keyword}</h1>
     </div>
+    
 }
 
 Search.propTypes = propTypes;
