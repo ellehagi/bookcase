@@ -11,6 +11,9 @@ body{
     height: 5vh;
     font-family: 'Bebas Neue', cursive;
   }
+  .nav-links:hover{
+      color: white;
+  }
 
   .nav-links {
     display: flex;
@@ -23,8 +26,9 @@ body{
     height: 10%;
     align-items: center;
     margin-right: auto;
+   
   }
-  
+ 
  
   .addbtn{  
     padding: 8px 10px;
